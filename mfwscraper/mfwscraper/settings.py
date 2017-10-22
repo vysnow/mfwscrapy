@@ -7,6 +7,19 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+# Setting up django's model
+import os
+import sys
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+sys.path.insert(0, BASE_DIR + '/../')
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'mfwapp.settings'
+
+import django
+django.setup()
+
+LOG_LEVEL = 'DEBUG'
+
 BOT_NAME = "mfwscraper"
 
 SPIDER_MODULES = ["mfwscraper.spiders"]
@@ -15,6 +28,7 @@ NEWSPIDER_MODULE = "mfwscraper.spiders"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "mfwscraper (+http://www.yourdomain.com)"
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -62,9 +76,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "mfwscraper.pipelines.MfwscraperPipeline": 300,
-#}
+ITEM_PIPELINES = {
+   "mfwscraper.pipelines.MfwscraperPipeline": 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
