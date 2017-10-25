@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 align = Center>Cities</h2>
+<section id="gridSystem">
+{% for city in cities %}
+<div class="row show-grid">
+        <p align = Center><strong> id: </strong>{{ city.id }} <strong> name: </strong>{{ city.name }} <strong>description:</strong> {{ city.description }}&nbsp&nbsp&nbsp&nbsp
+        </p>
+</div>
+{% endfor %}
+</section>
+<h2 align = Center>Sceneries</h2>
+<section id="gridSystem">
+{% for scenery in sceneries %}
+<div class="row show-grid">
+	<p align = Center><strong> id: </strong>{{ scenery.id }}	<strong> name: </strong>{{ scenery.name }} <strong>rank</strong> {{ scenery.rank}}  <strong>Lat&Lang</strong> {{ scenery.lat }}&amp {{ scenery.lng}} <strong>img</strong> {{ scenery.img}}  <strong>attraction:</strong> {{ scenery.description }} <strong>city</strong> {{ scenery.city }} &nbsp&nbsp&nbsp&nbsp
+	</p>
+</div>
+{% endfor %}
+</section>
+
+{% endblock content %}
