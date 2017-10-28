@@ -14,7 +14,7 @@ class MddSpider(scrapy.Spider):
 
     def __init__(self, q="chenzhou", *args, **kwargs):
         super(MddSpider, self).__init__(*args, **kwargs)
-        self.start_urls = ['http://www.mafengwo.cn/search/s.php?q=' + q]
+        self.start_urls = ['https://www.mafengwo.cn/search/s.php?q=' + q]
 
     def parse(self, response):
         yield scrapy.Request(response.url, callback=self.parse_city)
